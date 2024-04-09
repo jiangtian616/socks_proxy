@@ -484,7 +484,7 @@ class _HttpParser extends Stream<_HttpIncoming> {
             final version = _buffer![0];
             final status = _buffer![1];
             _index = _buffer!.length;
-            if (version != 0x05 || status != 0x00) {
+            if (version != 0x01 || status != 0x00) {
               exception = SocksException.incorrect;
             } else {
               _socksState = _SocksState.RequestReady;

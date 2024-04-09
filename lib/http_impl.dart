@@ -2241,8 +2241,8 @@ class _HttpClientConnection {
   void close() {
     closed = true;
     _httpClient._connectionClosed(this);
-    _streamFuture!
-        .timeout(_httpClient.idleTimeout)
+    _streamFuture
+        ?.timeout(_httpClient.idleTimeout)
         .then((_) => _socket.destroy());
   }
 
@@ -2346,7 +2346,7 @@ class _HttpClientConnection {
             throw const HttpException("Proxy Username or Password is too long");
           }
           final data = [
-            0x05,
+            0x01,
             username.length,
             ...ascii.encode(username),
             password.length,
